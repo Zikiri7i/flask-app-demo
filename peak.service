@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve peak Flask app
+After=network.target
+
+[Service]
+User=zikiriti
+Group=www-data
+WorkingDirectory=/home/zikiriti/deployment
+Environment="PATH=/home/zikiriti/env/deployementvenv/bin"
+ExecStart=/home/zikiriti/env/deployementvenv/bin/gunicorn --workers 3 --bind unix:peak.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
