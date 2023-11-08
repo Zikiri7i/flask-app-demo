@@ -6,8 +6,8 @@ After=network.target
 User=zikiriti
 Group=www-data
 WorkingDirectory=/home/zikiriti/deployment
-Environment="PATH=/home/zikiriti/env/deployementvenv/bin"
-ExecStart=/home/zikiriti/env/deployementvenv/bin/gunicorn --workers 3 --bind unix:peak.sock -m 007 wsgi:app
+Environment="PATH=/home/zikiriti/deployment/peakvenv/bin"
+ExecStart=/home/zikiriti/deployment/peakvenv/bin/gunicorn --workers 3 --bind unix:peak.sock -m 007 wsgi:app
 
 [Install]
 WantedBy=multi-user.target
